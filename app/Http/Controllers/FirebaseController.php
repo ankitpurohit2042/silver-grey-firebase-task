@@ -11,13 +11,14 @@ class FirebaseController extends Controller
 
     public function __construct()
     {
-        $this->database = \App\Providers\FirebaseService::connect();
+        // $this->database = \App\Providers\FirebaseService::connect();
     }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        dd("r");
         return response()->json($this->database->getReference('test/blogs')->getValue());
     }
 

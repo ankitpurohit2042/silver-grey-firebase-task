@@ -65,16 +65,15 @@ return [
      */
 
     'providers' => [
-/* 'users' => [
-    'driver' => 'eloquent',
-    'model' => App\Models\User::class,
-], */
-
         'users' => [
             'driver' => 'eloquent',
-            'model' => Firevel\FirebaseAuthentication\FirebaseIdentity::class,
+            'model' => App\Models\User::class,
         ],
 
+        'firebaseUser' => [
+            'driver' => 'firebaseuserprovider',
+            'model' => App\Models\User::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
