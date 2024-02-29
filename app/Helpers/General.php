@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 
 if (!function_exists('formatDate')) {
@@ -69,8 +70,7 @@ if (!function_exists('getCurrentUserDetails')) {
     {
         $bearerToken = request()->bearerToken();
         $auth = app('firebase.auth');
-        $verifiedIdToken = $auth->verifyIdToken($bearerToken);
-
+        $verifiedIdToken = $auth->verifyIdToken($bearerToken, true);
         if ($verifiedIdToken) {
             $uid = $verifiedIdToken->claims()->get('sub');
             $details = $auth->getUser($uid);
